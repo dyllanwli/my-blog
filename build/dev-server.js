@@ -5,7 +5,7 @@ const config = require('../config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
-console.log(config)
+// console.log(config)
 const open = require('opn')
 const path = require('path')
 const express = require('express')
@@ -66,7 +66,7 @@ app.use(devMiddleware)
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
-const uri = 'http://0.0.0.0:' + port
+// const uri = 'http://0.0.0.0:' + port
 
 var _resolve
 var _reject
