@@ -2,7 +2,7 @@
   <transition appear name="v--mask">
     <footer v-once class="blog__footer">
       <a class="signature" href="https://vuejs.org" target="_blank">
-        Make with&nbsp;<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Vue.js_Logo.svg/32px-Vue.js_Logo.svg"/>
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Vue.js_Logo.svg/32px-Vue.js_Logo.svg"/> -->
       </a>
     </footer>
   </transition>
