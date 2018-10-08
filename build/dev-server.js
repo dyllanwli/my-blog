@@ -5,7 +5,7 @@ const config = require('../config')
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
-
+console.log(config)
 const open = require('opn')
 const path = require('path')
 const express = require('express')
@@ -86,7 +86,7 @@ devMiddleware.waitUntilValid(() => {
       _reject(err)
     }
     process.env.PORT = port
-    var uri = 'http://localhost:' + port
+    var uri = 'http://0.0.0.0:' + port
     console.log('> Listening at ' + uri + '\n')
     // when env is testing, don't need open it
     if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
