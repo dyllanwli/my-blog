@@ -1,6 +1,8 @@
 .preview {
   position: relative;
   margin: 1.25rem 1.25rem 5rem;
+  // edit margin to modify the relative preview content size. 
+  // top right bottom left
   z-index: 0;
   @include imagePlaceholder;
 
@@ -8,6 +10,7 @@
     width: calc(50% - 2.5rem);
     margin: 1.25rem 1.25rem 2.5rem;
   }
+  // different device using different proportion 
 
   @media (--laptop) {
     width: calc(100% / 3 - 2.5rem);
