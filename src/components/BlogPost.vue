@@ -4,7 +4,7 @@
       <header class="post__header">
         <h2 class="post__title">{{ title }}</h2>
 
-        <h3 class="post__meta">by <router-link class="post__author"
+        <h3 class="post__meta">Tag: <router-link class="post__author"
           :to="`/by/${kebabify(author)}`">{{ author }}</router-link>
           <span class="post__sep"></span>
           <time>{{ prettyDate(published) }}</time>
@@ -16,8 +16,10 @@
       <section class="post__body rte" v-html="content"></section>
 
       <footer class="post__footer">
-        <vue-disqus v-if="commentsReady" shortname="vue-blog-demo"
-          :key="post" :identifier="post" :url="`https://vue-blog-demo.netlify.com/read/${post}`"/>
+        <!-- <vue-disqus v-if="commentsReady" shortname="dyllanwli"
+          :key="post" :identifier="post" :url="`https://example.com/read/${post}`"/> -->
+        <vue-disqus v-if="commentsReady" shortname="dyllanwli"
+          :key="post" :identifier="post"/>
       </footer>
     </article>
   </transition>

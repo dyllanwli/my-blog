@@ -16,9 +16,9 @@
               </time>
 
               <router-link class="preview__author"
-                :to="`/by/${kebabify(post.author)}`"
+                :to="`/by/${kebabify(post.tag)}`"
                 @click.native="scrollTo(0, 220, scrollDelay)">
-                {{ post.author }}
+                {{ post.tag }}
               </router-link>
             </div>
           </figcaption>
