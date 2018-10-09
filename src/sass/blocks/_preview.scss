@@ -96,11 +96,11 @@
   }
 
   &__published::after {
-    content: 'by';
+    content: 'tag:';
     padding: 0 .25rem;
   }
 
-  &__author {
+  &__tag {
     @extend %ff--500;
     text-decoration: underline;
     white-space: nowrap;

@@ -12,8 +12,8 @@ export default new Router({
     name: 'feed',
     component: Blog
   }, {
-    path: '/by/:author',
-    name: 'author',
+    path: '/by/:tag',
+    name: 'tag',
     props: true,
     component: Blog
   }, {
