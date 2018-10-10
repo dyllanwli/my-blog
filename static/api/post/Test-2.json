@@ -2,7 +2,7 @@
   "results": [{
     "id": "Test-2",
     "title": "Test-2",
-    "content": "This is Test-2 content",
+    "content": "Test-2.md",
     "image": "https://s3-us-west-2.amazonaws.com/s.cdpn.io/450744/etienne-bosiger.jpg",
     "meta": {
       "description": "This is Test-2 description",
