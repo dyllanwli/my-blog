@@ -26,27 +26,27 @@
 </template>
 
 <script>
-import VueDisqus from 'vue-disqus/VueDisqus'
-import { kebabify, prettyDate } from '../helpers'
+import VueDisqus from "vue-disqus/VueDisqus";
+import { kebabify, prettyDate } from "../helpers";
 
 export default {
-  name: 'blog-post',
-  resource: 'BlogPost',
+  name: "blog-post",
+  resource: "BlogPost",
   components: { VueDisqus },
   props: { post: String },
 
   data() {
     return {
-      title: '',
-      tag: '',
-      content: '',
-      published: '',
-      description: '',
+      title: "",
+      tag: "",
+      content: "",
+      published: "",
+      description: "",
       commentsReady: false,
       ready: false
-    }
+    };
   },
-
+  // TODO add marded function to process content
   computed: {
     allReady() {
       return this.ready && this.post;
@@ -57,8 +57,8 @@ export default {
     post(to, from) {
       if (to === from || !this.post) return;
 
-      this.commentsReady = false
-      this.$getResource('post', to)
+      this.commentsReady = false;
+      this.$getResource("post", to)
         .then(this.showComments)
         .then(() => {
           this.ready = true;
@@ -71,14 +71,16 @@ export default {
     prettyDate,
     showComments() {
       // This is injected by prerender-spa-plugin on build time, we don't prerender disqus comments.
-      if (window.__PRERENDER_INJECTED &&
-          window.__PRERENDER_INJECTED.prerendered) {
+      if (
+        window.__PRERENDER_INJECTED &&
+        window.__PRERENDER_INJECTED.prerendered
+      ) {
         return;
       }
 
       setTimeout(() => {
-        this.commentsReady = true
-      }, 1000)
+        this.commentsReady = true;
+      }, 1000);
     }
   },
 
@@ -88,11 +90,11 @@ export default {
       return;
     }
 
-    this.$getResource('post', this.post)
+    this.$getResource("post", this.post)
       .then(this.showComments)
       .then(() => {
         this.ready = true;
       });
   }
-}
+};
 </script>
