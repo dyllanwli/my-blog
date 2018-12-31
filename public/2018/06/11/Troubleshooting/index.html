@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Troubleshooting | DY-L</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="DY-L">
+
+  
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head" style="background-image: url(https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067)">
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png" alt="Blog Logo"></a> 
+            <h1 class="blog-title">DY-L</h1>
+            <h2 class="blog-description"></h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-06-11T14:24:07.000Z" itemprop="datePublished">
+          2018-06-11
+      </time>
+    
+</span>
+    <h1 class="post-title">Troubleshooting</h1>
+    <section class="post-content">
+      <p>Recording some troubleshooting</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><p>Some tips or little usage of docker </p>
+<ol>
+<li><p>how to shrink the docker logs</p>
+<ul>
+<li><code>truncate -s 0 /var/lib/docker/containers/*/*-json.log</code> </li>
+<li>Though it works, but it still looks so terrible when your produced too many</li>
+</ul>
+</li>
+<li><p>shadowsocks docker-compose:</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">version: &quot;3&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line"></span><br><span class="line">  aes-256-cfb_ss:</span><br><span class="line">    image: mritd/shadowsocks</span><br><span class="line">    ports:</span><br><span class="line">      - 2333:8989</span><br><span class="line">    restart: always</span><br><span class="line">    command: -m &quot;ss-server&quot; -s &quot;-s 0.0.0.0 -p 8989 -m aes-256-cfb -k mypassword--fast-open&quot;</span><br></pre></td></tr></table></figure>
+<h1 id="netdata"><a href="#netdata" class="headerlink" title="netdata"></a>netdata</h1><p>Here is the docker-compose file:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">version: &apos;3&apos;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  netdata:</span><br><span class="line">    image: netdata/netdata</span><br><span class="line">    volumes: </span><br><span class="line">      - /proc:/host/proc:ro</span><br><span class="line">      - /sys:/host/sys:ro</span><br><span class="line">      - /var/run/docker.sock:/var/run/docker.sock:ro</span><br><span class="line">    restart: always</span><br><span class="line">    cap_add:</span><br><span class="line">      - SYS_PTRACE</span><br><span class="line">    security_opt:</span><br><span class="line">      - apparmor=unconfined</span><br><span class="line">    ports:</span><br><span class="line">      - 19999:19999</span><br></pre></td></tr></table></figure>
+<h1 id="Python-snippets"><a href="#Python-snippets" class="headerlink" title="Python snippets"></a>Python snippets</h1><p>反转字符串：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">def main(word):</span><br><span class="line">    return &apos; &apos;.join(word.split()[::-1])</span><br><span class="line">word = &apos;the sky is blue&apos;</span><br><span class="line">inverse = main(word)</span><br><span class="line">print(word)</span><br><span class="line">print(inverse)</span><br></pre></td></tr></table></figure></p>
+<p>编辑距离<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">import re</span><br><span class="line">from collections import Counter</span><br><span class="line"></span><br><span class="line">f = open(r&apos;word_freq.txt&apos;, encoding=&apos;utf8&apos;)</span><br><span class="line">WORDS = &#123;&#125;</span><br><span class="line">id = 0</span><br><span class="line">for line in f.readlines():</span><br><span class="line">    if id % 2 == 0:</span><br><span class="line">        word_freq = line.split(&apos;\t&apos;)</span><br><span class="line">        WORDS[word_freq[0]] = int(word_freq[1])</span><br><span class="line">    id = id + 1</span><br><span class="line">letters = open(r&apos;word.txt&apos;, encoding=&apos;utf8&apos;).read()</span><br><span class="line"></span><br><span class="line">N = sum(WORDS.values())</span><br><span class="line"></span><br><span class="line">def P(word):</span><br><span class="line">    return WORDS[word] / N</span><br><span class="line"></span><br><span class="line">def know(words):</span><br><span class="line">    return set(w for w in words if w in WORDS)</span><br><span class="line"></span><br><span class="line">def edits1(word):</span><br><span class="line">    #letters = &apos;abcdefghijklmnopqrstuvwxyz&apos;</span><br><span class="line">    splits = [(word[:i], word[i:]) for i in range(len(word) + 1)] #切分</span><br><span class="line">    deletes = [L + R[1:] for L, R in splits if R] #删除</span><br><span class="line">    transposes = [L + R[1] + R[0] + R[2:] for L, R in splits if len(R) &gt; 1] #移位</span><br><span class="line">    replaces = [L + c + R[1:] for L, R in splits for c in letters] #代替</span><br><span class="line">    inserts = [L + c + R for L, R in splits for c in letters] #插入</span><br><span class="line">    return set(deletes + transposes + replaces + inserts)</span><br><span class="line"></span><br><span class="line">def edits2(word):</span><br><span class="line">    return (e2 for e1 in edits1(word) for e2 in edits1(e1))</span><br><span class="line"></span><br><span class="line">def candidates(word):</span><br><span class="line">    return (know([word]) or know(edits1(word)) or know(edits2(word)) or [word])</span><br><span class="line"></span><br><span class="line">def correction(word):</span><br><span class="line">    return max(candidates(word), key=P)</span><br><span class="line"></span><br><span class="line">print(correction(&apos;正分夺秒&apos;))</span><br></pre></td></tr></table></figure></p>
+<p>Load json file and write it for utf-8 format:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import json</span><br><span class="line">import codecs</span><br><span class="line"></span><br><span class="line">def write_json(output):</span><br><span class="line">    with codecs.open(&quot;config.json&quot;, &quot;w&quot;, &apos;utf-8&apos;) as file:</span><br><span class="line">        # using utf-8 and ensure_ascii for keep the formatting correct</span><br><span class="line">        file.write(json.dumps(output, ensure_ascii=False))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def load_json():</span><br><span class="line">    with open(&quot;template.json&quot;) as file:</span><br><span class="line">        template = json.load(file)</span><br><span class="line">        output = template</span><br><span class="line">        write_json(output)</span><br></pre></td></tr></table></figure>
+<p>Merge dictionary:</p>
+<ol>
+<li>Using the method update()<br>By using the method update() in Python, one list can be merged into another. But in this, the second list is merged into the first list and no new list is created. It returns None.<br>Example:<br>Python code to merge dict using update() method</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def Merge(dict1, dict2):</span><br><span class="line">    return(dict2.update(dict1))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Driver code</span><br><span class="line">dict1 = &#123;&apos;a&apos;: 10, &apos;b&apos;: 8&#125;</span><br><span class="line">dict2 = &#123;&apos;d&apos;: 6, &apos;c&apos;: 4&#125;</span><br><span class="line"></span><br><span class="line"># This return None</span><br><span class="line">print(Merge(dict1, dict2))</span><br><span class="line"></span><br><span class="line"># changes made in dict2</span><br><span class="line">print(dict2)</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>Using ** in Python</li>
+</ol>
+<p>This is generally considered a trick in Python where a single expression is used to merge two dictionaries and stored in a third dictionary. The single expression is <strong>. This does not affect the other two dictionaries. </strong> implies that the argument is a dictionary. Using <strong> [double star] is a shortcut that allows you to pass multiple arguments to a function directly using a dictionary. For more information refer </strong> kwargs in Python. Using this we first pass all the elements of the first dictionary into the third one and then pass the second dictionary into the third. This will replace the duplicate keys of the first dictionary.<br>Example:<br>Python code to merge dict using a single</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def Merge(dict1, dict2):</span><br><span class="line">    res = &#123;**dict1, **dict2&#125;</span><br><span class="line">    return res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Driver code</span><br><span class="line">dict1 = &#123;&apos;a&apos;: 10, &apos;b&apos;: 8&#125;</span><br><span class="line">dict2 = &#123;&apos;d&apos;: 6, &apos;c&apos;: 4&#125;</span><br><span class="line">dict3 = Merge(dict1, dict2)</span><br><span class="line">print(dict3)</span><br></pre></td></tr></table></figure>
+<h3 id="Use-argparse"><a href="#Use-argparse" class="headerlink" title="Use argparse."></a>Use argparse.</h3><p>For example, with test.py:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line"></span><br><span class="line">parser=argparse.ArgumentParser(</span><br><span class="line">    description=&apos;&apos;&apos;My Description. And what a lovely description it is. &apos;&apos;&apos;,</span><br><span class="line">    epilog=&quot;&quot;&quot;All&apos;s well that ends well.&quot;&quot;&quot;)</span><br><span class="line">parser.add_argument(&apos;--foo&apos;, type=int, default=42, help=&apos;FOO!&apos;)</span><br><span class="line">parser.add_argument(&apos;bar&apos;, nargs=&apos;*&apos;, default=[1, 2, 3], help=&apos;BAR!&apos;)</span><br><span class="line">args=parser.parse_args()</span><br></pre></td></tr></table></figure></p>
+<p>Running</p>
+<p><code>% test.py -h</code><br>yields<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">usage: test.py [-h] [--foo FOO] [bar [bar ...]]</span><br><span class="line"></span><br><span class="line">My Description. And what a lovely description it is.</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  bar         BAR!</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help  show this help message and exit</span><br><span class="line">  --foo FOO   FOO!</span><br><span class="line"></span><br><span class="line">All&apos;s well that ends well.</span><br></pre></td></tr></table></figure></p>
+<h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><h2 id="What-is-sudo"><a href="#What-is-sudo" class="headerlink" title="What is sudo"></a>What is sudo</h2><p>To explain this you need to know what the programs do:</p>
+<p><code>su</code> - The command <code>su</code> is used to switch to another user (<strong>s</strong> witch <strong>u</strong> ser), but you can also switch to the root user by invoking the command with no parameter. <code>su</code> asks you for the password of the user to switch, after typing the password you switched to the user’s environment.     </p>
+<p><code>sudo</code> - <code>sudo</code> is meant to run a single command with root privileges. But unlike <code>su</code> it prompts you for the password of the current user. This user must be in the sudoers file (or a group that is in the sudoers file). By default, Ubuntu “remembers” your password for 15 minutes, so that you don’t have to type your password every time.</p>
+<p><code>bash</code> - A text-interface to interact with the computer. It’s important to understand the difference between login, non-login, interactive and non-interactive shells:</p>
+<ul>
+<li>login shell: A login shell logs you into the system as a specified user, necessary for this is a username and password. When you hit <kbd>ctrl</kbd>+<kbd>alt</kbd>+<kbd>F1</kbd> to login into a virtual terminal you get after successful login a login shell.</li>
+<li>non-login shell: A shell that is executed without logging in, necessary for this is a currently logged-in user. When you open a graphic terminal in gnome it is a non-login shell.</li>
+<li>interactive shell: A shell (login or non-login) where you can interactively type or interrupt commands. For example a gnome terminal.</li>
+<li>non-interactive shell: A (sub)shell that is probably run from an automated process. You will see neither input nor output.</li>
+</ul>
+<p><strong><code>sudo su</code></strong> Calls <code>sudo</code> with the command <code>su</code>. Bash is called as interactive non-login shell. So bash only executes <code>.bashrc</code>. You can see that after switching to root you are still in the same directory:</p>
+<pre><code>user@host:~$ sudo su
+root@host:/home/user#
+</code></pre><p><strong><code>sudo su -</code></strong> This time it is a login shell, so <code>/etc/profile</code>, <code>.profile</code> and <code>.bashrc</code> are executed and you will find yourself in root’s home directory with root’s environment.</p>
+<p><strong><code>sudo -i</code></strong> It is nearly the same as <code>sudo su -</code> The -i (simulate initial login) option runs the shell specified by the password database entry of the target user as a login shell.  This means that login-specific resource files such as <code>.profile</code>, <code>.bashrc</code> or <code>.login</code> will be read and executed by the shell.</p>
+<p><strong><code>sudo /bin/bash</code></strong> This means that you call <code>sudo</code> with the command <code>/bin/bash</code>. <code>/bin/bash</code> is started as non-login shell so all the dot-files are not executed, but bash itself reads <code>.bashrc</code> of the calling user. Your environment stays the same. Your home will not be root’s home. So you are root, but in the environment of the calling user.</p>
+<p><strong><code>sudo -s</code></strong> reads the <code>$SHELL</code> variable and executes the content. If <code>$SHELL</code> contains <code>/bin/bash</code> it invokes <code>sudo /bin/bash</code> (see above).</p>
+<p><strong>Check:</strong><br>To check if you are in a login shell or not (works only in bash because <code>shopt</code> is a builtin command):</p>
+<pre><code>shopt -q login_shell &amp;&amp; echo &apos;Login shell&apos; || echo &apos;No login shell&apos;
+</code></pre><h3 id="Referencing"><a href="#Referencing" class="headerlink" title="Referencing"></a>Referencing</h3><ul>
+<li><a href="https://askubuntu.com/questions/376199/sudo-su-vs-sudo-i-vs-sudo-bin-bash-when-does-it-matter-which-is-used" target="_blank" rel="noopener">https://askubuntu.com/questions/376199/sudo-su-vs-sudo-i-vs-sudo-bin-bash-when-does-it-matter-which-is-used</a></li>
+</ul>
+<h3 id="To-enable-root-login-in-ubuntu"><a href="#To-enable-root-login-in-ubuntu" class="headerlink" title="To enable root login in ubuntu:"></a>To enable root login in ubuntu:</h3><p>set <code>/etc/ssh/sshd_config</code>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br></pre></td></tr></table></figure></p>
+<h1 id="Jupyter-notebook"><a href="#Jupyter-notebook" class="headerlink" title="Jupyter notebook"></a>Jupyter notebook</h1><p><a href="https://jupyter-notebook.readthedocs.io/en/stable/public_server.html" target="_blank" rel="noopener">Official Guild</a></p>
+<p><a href="https://stackoverflow.com/questions/14297741/how-to-start-ipython-notebook-server-at-boot-as-daemon" target="_blank" rel="noopener">Running as a daemon</a></p>
+<p>If you are using Anaconda integrated jupyter-notebook, using <code>which jupyter-notebook</code> to find the place that jupyter located.</p>
+<p>Then add this to <code>/usr/lib/systemd/system/jupyter.service</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Jupyter Notebook</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">PIDFile=/run/jupyter.pid</span><br><span class="line">ExecStart=/root/anaconda3/bin/jupyter-notebook --config=/root/.jupyter/jupyter_notebook_config.py --allow-root</span><br><span class="line">User=jupyter</span><br><span class="line">Group=jupyter</span><br><span class="line">WorkingDirectory=/root</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=10</span><br><span class="line">#KillMode=mixed</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>Sometimes it will faild by the Permission or config issues, using the following method to solve it.</p>
+<ul>
+<li>add <code>--allow-root</code> in the end of the ExecStart command</li>
+<li>remove <code>User</code> or <code>Group</code> on <code>[Service]</code> Option</li>
+<li>add <code>/bin/bash -c</code> in the head of the ExecStart</li>
+</ul>
+<h1 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h1><p>When I transfer my development environment from OSX to Windows, due to the stipulation, I stuffered a lot because of the notorious unfriendly dev-env of windows.</p>
+<ol>
+<li>Unable to create any file or folder. Even though I reset the Security on the Properties on the Disk to full control. <ul>
+<li>Finally I figured out some sorfware or my slip to create redgit lose. </li>
+<li>use win + R to open regdit</li>
+<li>Go into <code>HKEY_CLASSES_ROOT\Directory\Background\shellex\ContextMenuHandlers\</code></li>
+<li>Later I will find there only two option in the Context Menu Handlers. That’s werid.</li>
+<li>If New folder exists, edits the New option and modify the Value to <code>{D969A300-E7FF-11d0-A93B-00A0C90F2719}</code></li>
+<li>If it not exists, create one and fill the Value as I mentioned above.</li>
+</ul>
+</li>
+</ol>
+<h1 id="Node-js"><a href="#Node-js" class="headerlink" title="Node.js"></a>Node.js</h1><ol>
+<li>Though there are planty of method to deal with the callback machinism, still too many people, especially who have been learning static type language with no rudimentary of asynchronous programming experience, cannot be capable of adapting subversion coding style.</li>
+<li>So I am about to record some trouble when I learning node.js or typescripts or other javascripts-like stuff as a <code>story</code>.</li>
+<li>When I use vscode to write node.js, more specifically, to write javascript style language, like typescript.<ul>
+<li>but when I use <code>buffer</code> type on typescript, there are always pop up a red dot which notice me <code>[ts] cannot find name &#39;buffer&#39;</code>. That’s weird since buffer is a normal variable type in the most programming language, so is it in typescript. However, it still annoying me. </li>
+<li>Here is the conclusion: some node environmnet types are needed when use typescript, for some types are not embeded in typescript. For this limitation, we might be able to get around by stubbing those interfaces in the future. </li>
+<li>I admit it’s odd to have to include node typing for a fornt-end project, but when I try install the envrionmetn typeings to see if it gets around on my issues. It workd for now. </li>
+<li><code>npm install --save-deve @types/node</code></li>
+</ul>
+</li>
+<li>This day, I try to use RocketMQ to build a connection between nodejs and Java, nothing happends… </li>
+<li>When I using npm install to install grpc, processes stucked in <code>node-pre-gyp install --fallback-to-build --library=static_library</code>. Waiting over than 1 hours or more still cannot finished that course. Besides, when I checked the cpu usage of the machine, it seems that all the processers are running in low load, which means that the machine works fine. Now that the trouble must caused by the npm. It looks like shortage of some optional package which makes the process stagged. <ul>
+<li>using <code>yum install -y node-gyp</code> to install the node-pre-gyp or somethings else(I am not sure what it is. But when all installation stuff done, then the npm install going smoothly without any hitch). It is normal when the npm install slow down or even unresponsive when <code>node-pre-grp install</code>, after all the build progress consume some system resources.</li>
+</ul>
+</li>
+<li>running command with nodejs: <a href="https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js?answertab=votes#tab-top" target="_blank" rel="noopener">https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js?answertab=votes#tab-top</a></li>
+</ol>
+<h1 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h1><ol>
+<li>when you have already installed docker-ce or other docker toolkit, you may come into installation conflict unless you choose other installation method instead of using package management tool like <code>yum/apt/...</code>. <ul>
+<li>otherwise, you should uninstall the old version of docker, then run <code>yum install -y etcd kubernetes</code></li>
+</ul>
+</li>
+<li><p>when I using pod deployment to run a hello-world cluster, I found that k8s can not let the container running and unable to create replication. </p>
+<ul>
+<li><p>Use <code>kubectl describe pods</code> to get more information. Scrolling down to the last line, I saw that it’s going to readhat.com and failing. Why it’s using RedHat repo？ Did it should pull from the docker hub?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error syncing pod, skipping: failed to &quot;StartContainer&quot; for &quot;POD&quot; with ErrImagePull: &quot;image pull failed for registry.access.redhat.com/rhel7/pod-infrastructure:latest, this may be because there are no credentials on this request.  details: (open /etc/docker/certs.d/registry.access.redhat.com/redhat-ca.crt: no such file or directory)&quot;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<pre><code>- using `yum install -y subscription-manager rhsm` to help the k8s pull from the right place
+- But unfortunately, I failed to install both rhsm and subscription. In fact, rhsm has been replace by RedHat&apos;s subscription-manager. It cannot works for my machine, yet subscription-manager installed successfuly.
+- So I have to search the old version of rhsm and then use rpm installation tool to force my systemd to use rhsm.
+- Here is the package download address: 
+- https://www.rpmfind.net/linux/centos/7.5.1804/os/x86_64/Packages/python-rhsm-certificates-1.19.10-1.el7_4.x86_64.rpm
+- https://www.rpmfind.net/linux/centos/7.5.1804/os/x86_64/Packages/python-rhsm-1.19.10-1.el7_4.x86_64.rpm
+- Both rhsm and certificate should installed in order, the rhsm is rely on the certificate tool. 
+- Make sure you download the two package on the same folder and use `rpm -ivh python-rhsm-*.rpm` to keep the installation in order.
+</code></pre><ol start="3">
+<li><p>After I deal with the rhsm ERROR, kubernetes throw up another problem immediately to me, compelling me to keep dive into the OPS stuff with unprepared technology experience. </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">image pull failed for registry.access.redhat.com/rhel7/pod-infrastructure:latest, this may be because there are no credentials on this request.  details: (net/http: request canceled)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<pre><code>- As plain as on the screen, kubernetes cannot interactive docker to pull a image from hub. Most of the solution that I used for settle is using the proxy(To bypass the GWF).
+- Using `docker pull registry.access.redhat.com/rhel7/pod-infrastructure:latest`, it looks good to me.
+</code></pre><ol start="4">
+<li><p>If you choose <code>hostpath</code> as your presistentVolume, you can only use <code>ReadWriteOnce</code> for single node, since you developments environment is single node.</p>
+</li>
+<li><p>And if you create a service without defining a selector as in a yaml file, like most people do in case to select the pods, endpoints will not be create. But, fortunatly, kubernetes offers a alternative way to make sure you container, which deployed in some specific pods, to communicate with other exogenous container. </p>
+<ul>
+<li>declaring another kind as endpoints, as you can noticed when you use <code>kubectl get endpoints</code>, which endpoints defined as a permanent word in kubetctl, to create a type of component, with setting some propetries.</li>
+<li>when it comes to the imperative complexity, multiple ports is be requisted in many services deployment. As defined in whether kubernetes or any network policy, exposing more than one port is necessary. Kubernetes supports multiple port definitions on a Service object. Resulting from that predefined statements, when using multiple ports you must give all of your ports names, so that endpoints can be disambiguated.  </li>
+<li>Endpoint will not be alloted unless the pods be created.</li>
+</ul>
+</li>
+<li><p>helm init failure becuase of the image pulling crash. So I need to setting a docker-proxy and daemon-reload/restart docker to pull the images again.</p>
+</li>
+<li><p>Though helm init successfully when image has been pulled, helm still cannot connect to the kubernetes api server. It shows:</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: Get http://localhost:8080/api/v1/namespaces/kube-system/configmaps?labelSelector=OWNER%!D(MISSING)TILLER: dial tcp [::1]:8080: connect: connection refused</span><br></pre></td></tr></table></figure>
+<ul>
+<li>It seems that the tiller pod in kubernetes cannot connect to the api servier cause lack of HOST or DNS. </li>
+<li>Using <code>docker exec -it container_ip env</code> to get the environment variable to check whether the KUBERNETES_SERVICE_HOST exists. Then I got the 10.254.0.1, it looks like the default kuberentes service IP</li>
+</ul>
+</li>
+<li><p>In the Great China, most of the Internet stuff about the goolge cannot be accessible. But some tech company are willing to help other programmer to get access google cloud, npm and any repo which is blocked in the outside of the GWF. It is the same as the helm. The final solution for me is installing an aliyun version of helm to get to start the tiller. Also, don’t forget to get the right version matching between client and server.</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    helm init --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.9.1 --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts</span><br><span class="line">kubectl create serviceaccount --namespace kube-system tiller</span><br><span class="line">kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller</span><br><span class="line">kubectl patch deploy --namespace kube-system tiller-deploy -p &apos;&#123;&quot;spec&quot;:&#123;&quot;template&quot;:&#123;&quot;spec&quot;:&#123;&quot;serviceAccount&quot;:&quot;tiller&quot;&#125;&#125;&#125;&#125;&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Noticed that when I using 2.10 version of helm, there is an gorouting error happend by typing <code>helm ls</code></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">panic: runtime error: invalid memory address or nil pointer dereference [signal SIGSEGV: segmentation violation code=0x1 addr=0x30 pc=0x1276506] tiller</span><br></pre></td></tr></table></figure>
+<ul>
+<li>That is a dev bug undering the development of the helm.</li>
+<li>downupgrde you helm to 2.9.1 will be fine.</li>
+</ul>
+</li>
+</ol>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ol>
+<li><code>Encountered end of file</code><ul>
+<li>Add $GIT_CURL_VERBOSE=1 can solved that problem </li>
+</ul>
+</li>
+<li>Still be annoied by the useless private gitlab server, problem comes one by one without any obviating indication. <ul>
+<li><code>Peer&#39;s Certificate issuer is not recognized.</code></li>
+<li>two solutions, the first one is setting GIS_SSL_NO_VERIFY environment parametes to true</li>
+<li>the another one is using <code>git config --global http.sslVerify false</code> to solving the config missing</li>
+</ul>
+</li>
+<li><p>git can not clone a repo from a unsafe link </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: unable to access &apos;https://***.git/&apos;: SSL certificate problem: self signed certificate</span><br></pre></td></tr></table></figure>
+<ul>
+<li>solution: add a environment in the front of you command:</li>
+<li>GIT_SSL_NO_VERIFY=true git clone <em>**</em></li>
+</ul>
+</li>
+<li>what if you used a Github account on your mac before but now your changed your account?</li>
+</ol>
+<p>Try remove your account:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git credential-osxkeychain erase</span><br><span class="line">host=github.com</span><br><span class="line">protocol=https</span><br><span class="line">[Press Return]</span><br></pre></td></tr></table></figure>
+<p>and using <code>git push</code>  or whatever the command to handle git and login your git account again.</p>
+<h1 id="Hyperledger-Fabric"><a href="#Hyperledger-Fabric" class="headerlink" title="Hyperledger Fabric"></a>Hyperledger Fabric</h1><ol>
+<li><p><code>Error creating GRPC server: listen tcp: lookup [your-peer-name] on 127.0.0.11:53: no such host</code></p>
+<ul>
+<li>Small fix difícil de conseguir para Hyperledger Fabric 1.1.0 corriendo en Docker Swarm. Multiples organizations corriendo en un mismo host:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">createChaincodeServer -&gt; ERRO 02a Error creating GRPC server: listen tcp: lookup [your-peer-name] on 127.0.0.11:53: no such host</span><br><span class="line"></span><br><span class="line">Resulta que para la versión 1.1.0 de HLF se requiere incluir esta propiedad en el environment section del docker-compose.yaml de los peers:</span><br><span class="line"></span><br><span class="line">CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:7052</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>Error: Error: Calling enrollment endpoint failed with error [Error: read ECONNRESET]</code></p>
+<ul>
+<li>When I try to monitor a event hub for chaincode calling in node SDK, some error throw up after I use my own script to create channel, join, and other stuff. </li>
+<li>The weird things is that, checking the ca container looks good to me. Then I recalled that if it is my fault that not to add remove temp file cache in scripts. So I rechecked it again, however, I cleared the cache. </li>
+<li>How can this happend without any change I did to the server. So I debug my script by line: after I started up the network, I did other channel stuff in few seconds. It surprised me that the log did not throw the error mentioned above. </li>
+<li>It turns out that I can create the channel immediately when I started up the docker-compose.</li>
+<li>Add sleep 5 to the scripts will be fine.</li>
+</ul>
+</li>
+<li><p><code>Promise is rejected: Error: 2 UNKNOWN: access denied: channel [mychannel] creator org [Org1MSP]</code></p>
+<ul>
+<li>orgpeercan not be found in channel</li>
+</ul>
+</li>
+<li><code>error executing chaincode: failed to execute transaction: timeout expired while executing transaction</code><br>Probably because of the chaincode is not installed perfectly</li>
+</ol>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>DY-L</h4>
+    <p>专业做梦,业余写写代码弹弹琴做点东西</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=https://dyllanwli.github.io/2018/06/11/Troubleshooting/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://dyllanwli.github.io/2018/06/11/Troubleshooting/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://dyllanwli.github.io/2018/06/11/Troubleshooting/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/2017/09/06/About/">
+        About →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">DY-L</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'dyllanwli';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>
