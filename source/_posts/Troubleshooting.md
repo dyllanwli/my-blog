@@ -1,7 +1,7 @@
 ---
 layout: title
 title: Troubleshooting mixed
-date: 2018-06-11 22:24:07
+date: 2018-01-01 22:24:07
 tags: troubleshooting
 ---
 

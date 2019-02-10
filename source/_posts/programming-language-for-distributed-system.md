@@ -1,8 +1,8 @@
 ---
 layout: title
 title: Programming language for Distribute System
-date: 2017-02-09 21:19:15
-tags: Distribution System, Excerpts
+date: 2018-02-09 21:19:15
+tags: Distribution System
 ---
 ## 1. Erlang
 [Erlang][1], as described by [Wikipedia][2]:
@@ -25,9 +25,9 @@ GoLang from Google is a pretty new language. It seems that among its many attrib
 
 Go seems to be focused on concurrency issues, threading primitives in the language, and so on, and this is perhaps a necessary-but-not-quite-sufficient starting point for distributed systems. Perhaps their thoughts will be helpful to you. I wouldn't call Go-lang's support for distributed systems "first-class", but rather, say that it would be possible to build a first class distributed-systems framework using Go's library and language primitives.
 
-Update: I'm less impressed with Go several years later. I think it suffers from some sad and limited thinking on the part of its authors. I think its decisions on fault and exception handling are retrograde, and render the language unusable.
+At first, I'm less impressed with Go. I think it suffers from some sad and limited thinking on the part of its authors. I think its decisions on fault and exception handling are retrograde, and render the language unusable.
 
-Update-2016: I'm actually impressed with Go again. I now think in terms of large team development where having N-factorial implementation options leads to N-factorial different coding tarpits. At least Go doesn't seem to have labrea scale tarpits, only certain conventional mudwallows. They absolutely love tabs and will insert them into your code for you if you fail to love them enough.
+But I now think in terms of large team development where having N-factorial implementation options leads to N-factorial different coding tarpits. At least Go doesn't seem to have labrea scale tarpits, only certain conventional mudwallows. They absolutely love tabs and will insert them into your code for you if you fail to love them enough.
 
 ## 3. Bloom
 [Bloom][6] is a new domain-specific language for distributed programming. The current alpha release is embedded in Ruby, and targeted at early adopters. Bloom leverages new research on "CALM" analysis to provide tools that pinpoint distributed consistency and coordination issues in your code.
