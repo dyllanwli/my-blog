@@ -2,7 +2,7 @@
 layout: title
 title: About
 date: 2017-09-06 18:17:14
-tags:
+tags: about
 ---
 + Programmer.
 + Learning Jazz theory.

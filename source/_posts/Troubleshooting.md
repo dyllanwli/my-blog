@@ -1,8 +1,8 @@
 ---
 layout: title
-title: Troubleshooting
+title: Troubleshooting mixed
 date: 2018-06-11 22:24:07
-tags:
+tags: troubleshooting
 ---
 
 Recording some troubleshooting

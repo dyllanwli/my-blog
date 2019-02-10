@@ -2,7 +2,7 @@
 layout: title
 title: 2019 Aspiration
 date: 2019-01-01 11:57:32
-tags:
+tags: flag
 ---
 
 新年的愿景
