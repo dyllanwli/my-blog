@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Using Kafka as a Event Store | DY-L</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="DY-L">
+
+  
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head" style="background-image: url(https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067)">
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png" alt="Blog Logo"></a> 
+            <h1 class="blog-title">DY-L</h1>
+            <h2 class="blog-description"></h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2019-02-10T08:11:12.000Z" itemprop="datePublished">
+          2019-02-10
+      </time>
+    
+    
+    | 
+    <a href="/tags/Distributed-System/">Distributed System</a>
+    
+    
+</span>
+    <h1 class="post-title">Using Kafka as a Event Store</h1>
+    <section class="post-content">
+      <p>Kafka is meant to be a messaging system which has many similarities to an event store however to quote their intro:</p>
+<blockquote>
+<p>The Kafka cluster retains all published messages—whether or not they<br>have been consumed—<strong>for a configurable period of time</strong>. For example if<br>the retention is set for two days, then for the two days after a<br>message is published it is available for consumption, after which it<br>will be discarded to free up space. Kafka’s performance is effectively<br>constant with respect to data size so retaining lots of data is not a<br>problem.</p>
+</blockquote>
+<p>So while messages can potentially be retained indefinitely, the expectation is that they will be deleted. This doesn’t mean you can’t use this as an event store, but it may be better to use something else. Take a look at <a href="http://geteventstore.com/" target="_blank" rel="noopener">EventStore</a> for an alternative.</p>
+<p><a href="http://kafka.apache.org/documentation.html" target="_blank" rel="noopener">Kafka documentation</a>:</p>
+<blockquote>
+<p>Event sourcing is a style of application design where state changes are logged as a time-ordered sequence of records. Kafka’s support for very large stored log data makes it an excellent backend for an application built in this style.</p>
+</blockquote>
+<p>One concern with using Kafka for event sourcing is the number of required topics. Typically in event sourcing, there is a stream (topic) of events per entity (such as user, product, etc). This way, the current state of an entity can be reconstituted by re-applying all events in the stream. Each Kafka topic consists of one or more partitions and each partition is stored as a directory on the file system. There will also be pressure from ZooKeeper as the number of znodes increases.</p>
+<p>Other things that we should notice are:</p>
+<ul>
+<li>Kafka only guarantees at least once deliver and there are duplicates<br>in the event store that cannot be removed.<br>Here you can read why it is so hard with Kafka and some latest news about how to finally achieve this behavior: <a href="https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/" target="_blank" rel="noopener">https://www.confluent.io/blog/exactly-once-semantics-are-possible-heres-how-apache-kafka-does-it/</a></li>
+<li>Due to immutability, there is no way to manipulate event store when application evolves and events need to be transformed (there are of course methods like upcasting, but…). Once might say you never need to transform events, but that is not correct assumption, there could be situation where you do backup of original, but you upgrade them to latest versions. That is valid requirement in event driven architectures.</li>
+<li>No place to persist snapshots of entities/aggregates and replay will become slower and slower. Creating snapshots is must feature for event store from long term perspective. </li>
+<li>Given Kafka partitions are distributed and they are hard to manage and<br>backup compare with databases. Databases are simply simpler</li>
+</ul>
+<p>So, before you make your choice you think twice. Event store as combination of application layer interfaces (monitoring and management), SQL/NoSQL store and Kafka as broker is better choice than leaving Kafka handle both roles to create complete feature full solution.</p>
+<p>Event store is complex service which requires more than what Kafka can offer if you are serious about applying Event sourcing, CQRS, Sagas and other patterns in event driven architecture and stay high performance.</p>
+<p>Please look at eventuate.io microservices open source framework to discover more about the potential problems: <a href="http://eventuate.io/" target="_blank" rel="noopener">http://eventuate.io/</a></p>
+<h3 id="Back-to-Topic"><a href="#Back-to-Topic" class="headerlink" title="Back to Topic"></a>Back to Topic</h3><ul>
+<li>Using Kafka as a event soursing? Yes or No, depending on your event sourcing usage.</li>
+<li>It can be used in downstream event processors<br>In this kind of system, events happen in the real world and are recorded as facts. Such as a warehouse system to keep track of pallets of products. There are basically no conflicting events. Everything has already happened, even if it was wrong. (I.e. pallet 123456 put on truck A, but was scheduled for truck B.) Then later the facts are checked for exceptions via reporting mechanisms. Kafka seems well-suited for this kind of down-stream, event processing application.</li>
+</ul>
+<p>In this context, it is understandable why Kafka folks are advocating it as an Event Sourcing solution. Because it is quite similar to how it is already used in, for example, click streams. However, people using the term Event Sourcing (as opposed to Stream Processing) are likely referring to the second usage…</p>
+<ul>
+<li>It CANNOT be used in Application-controlled source of truth</li>
+</ul>
+<p>This kind of application declares its own events as a result of user requests passing through business logic. Kafka does not work well in this case for two primary reasons.</p>
+<ul>
+<li>Lack of entity isolation</li>
+</ul>
+<p>This scenario needs the ability to load the event stream for a specific entity. The common reason for this is to build a transient write model for the business logic to use to process the request. Doing this is impractical in Kafka. Using topic-per-entity could allow this, except this is a non-starter when there may be thousands or millions of that entity. This is due to technical limits in Kafka/Zookeeper. Using topic-per-type is recommended instead for Kafka, but this would require loading events for every entity of that type just to get events for a single entity. Since you cannot tell by log position which events belong to which entity. Even using Snapshots to start from a known log position, this could be a significant number of events to churn through. But snapshots cannot help you with code changes. Because adding new features to the business logic may render previous snapshots structurally incompatible. So it is still necessary to do a topic replay in those cases to build a new model. One of the main reasons to use a transient write model instead of a persisted one is to make business logic changes cheap and easy to deploy.</p>
+<ul>
+<li>Lack of conflict detection</li>
+</ul>
+<p>Secondly, users can create race conditions due to concurrent requests against the same entity. It may be quite undesirable to save conflicting events and resolve them after the fact. So it is important to be able to prevent conflicting events. To scale request load, it is common to use stateless services while preventing write conflicts using conditional writes (only write if the last entity event was #x). A.k.a. Optimistic Concurrency. Kafka does not support optimistic concurrency. Even if it supported it at the topic level, it would need to be all the way down to the entity level to be effective. To use Kafka and prevent conflicting events, you would need to use a stateful, serialized writer at the application level. This is a significant architectural requirement/restriction.</p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>DY-L</h4>
+    <p>专业做梦,业余写写代码弹弹琴做点东西</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=https://dyllanwli.github.io/2019/02/10/Using-Kafka-as-a-Event-Store/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://dyllanwli.github.io/2019/02/10/Using-Kafka-as-a-Event-Store/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://dyllanwli.github.io/2019/02/10/Using-Kafka-as-a-Event-Store/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/2019/01/01/2019-Aspiration/">
+        2019 Aspiration →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">DY-L</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'dyllanwli';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>
