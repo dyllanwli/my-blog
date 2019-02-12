@@ -152,12 +152,12 @@
 <ol>
 <li>square wave (2 track)</li>
 </ol>
-<p><img alt="" class="post-img b-lazy" href="/Using-Tone-js-to-make-8bit-music/square-wave.jpg" data-src="/Using-Tone-js-to-make-8bit-music/square-wave.jpg"></p>
+<p><img alt="square wave" class="post-img b-lazy" href="https://i.loli.net/2019/02/12/5c62ce1f5dc96.jpg" data-src="https://i.loli.net/2019/02/12/5c62ce1f5dc96.jpg"></p>
 <p>Square wave occupy two track, since it has variable proportions waves. Thus the wave generate different tone. Piano, guitar and other instrument can be simulated by this wave.  </p>
 <ol start="2">
 <li>triangular wave (1 track)</li>
 </ol>
-<p><img alt="" class="post-img b-lazy" href="/Using-Tone-js-to-make-8bit-music/triangular-wave.jpg" data-src="/Using-Tone-js-to-make-8bit-music/triangular-wave.jpg"></p>
+<p><img alt="triangular wave" class="post-img b-lazy" href="https://i.loli.net/2019/02/12/5c62ce1f6c3b1.jpg" data-src="https://i.loli.net/2019/02/12/5c62ce1f6c3b1.jpg"></p>
 <p>sometime we use this wave to simulate bass</p>
 <ol start="3">
 <li>noise (1 track)</li>
@@ -222,7 +222,7 @@ var noiseSynth = new Tone.NoiseSynth().toMaster()
 <li>Audio effect</li>
 </ol>
 <p>Last step we should add audio effect to make music more rich. Like I mentioned before, ADSR can create some reverberation, echo and differnet pitch. These can be achieved by <code>Tone.Envelope()</code>.</p>
-<p><img alt="" class="post-img b-lazy" href="/Using-Tone-js-to-make-8bit-music/ADSR.jpg" data-src="/Using-Tone-js-to-make-8bit-music/ADSR.jpg"></p>
+<p><img alt="ADSR" class="post-img b-lazy" href="https://i.loli.net/2019/02/12/5c62ce1f5dc96.jpg" data-src="https://i.loli.net/2019/02/12/5c62ce1f5dc96.jpg"></p>
 <p>Here is the code:</p>
 <pre><code>envelope: {
 attack  : 0.01 ,
@@ -255,6 +255,10 @@ releaseCurve  : exponential
         
     </nav>
 
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
     
 </main>
 
@@ -330,8 +334,6 @@ releaseCurve  : exponential
       
       
       
-      
-      
     </ul>
   </div>
   <footer class="read-next-card-footer">
@@ -343,6 +345,17 @@ releaseCurve  : exponential
             
             
 
+<article class="read-next-card" style="background-image: url(https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067)">
+    <header class="read-next-card-header" style="padding-bottom: 20px">
+        <h3 class="read-next-card-header-title">Categories</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li></ul>
+        </ul>
+    </div>
+</article>
+
 
             
             
@@ -353,7 +366,7 @@ releaseCurve  : exponential
 		<h3 class="read-next-card-header-title">Tag Cloud</h3>
 	</header>
 	<div class="read-next-card-content-ext">
-		<a href="/tags/Distributed-System/" style="font-size: 14px;">Distributed System</a> <a href="/tags/Distribution-System/" style="font-size: 14px;">Distribution System</a> <a href="/tags/about/" style="font-size: 14px;">about</a> <a href="/tags/certificate/" style="font-size: 14px;">certificate</a> <a href="/tags/flag/" style="font-size: 14px;">flag</a> <a href="/tags/troubleshooting/" style="font-size: 14px;">troubleshooting</a>
+		<a href="/tags/Distributed-System/" style="font-size: 24px;">Distributed System</a> <a href="/tags/Hyperledger/" style="font-size: 14px;">Hyperledger</a> <a href="/tags/certificate/" style="font-size: 14px;">certificate</a> <a href="/tags/flag/" style="font-size: 14px;">flag</a> <a href="/tags/troubleshooting-docker-hyperledger-linux/" style="font-size: 14px;">troubleshooting, docker, hyperledger, linux</a>
 	</div>
 </article>
 
@@ -451,6 +464,22 @@ releaseCurve  : exponential
 
 
 
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#comment' ,
+        verify: false,
+        notify: true,
+        appId: 'rbnJsA1FEvTiNEtlqA806eUg-gzGzoHsz',
+        appKey: 'y6fNB9url2YrSFBmxBAmAfVd',
+        placeholder: 'leave your comment...',
+        pageSize: 10,
+        avatar: 'mm',
+        visitor: true,
+    });
+</script>
 
 
 
