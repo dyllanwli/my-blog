@@ -2,7 +2,8 @@
 layout: title
 title: Programming language for Distribute System
 date: 2018-02-09 21:19:15
-tags: Distribution System
+tags: Distributed System
+categories: Tech
 ---
 ## 1. Erlang
 [Erlang][1], as described by [Wikipedia][2]:

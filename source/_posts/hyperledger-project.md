@@ -2,7 +2,8 @@
 layout: title
 title: Different between 5 Hyperleder project
 date: 2018-02-10 15:45:42
-tags:
+tags: Hyperledger
+categories: Tech
 ---
 The Linux Foundation’s Hyperledger project, which is focused on open source blockchain technology, divides its work into five sub projects. Hyperledger Executive Director Brian Behlendorf said Hyperledger’s technical steering committee must approve each new sub project, and it’s looking for projects that “represent different thinking.”
 
