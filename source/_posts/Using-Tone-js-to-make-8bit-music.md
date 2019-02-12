@@ -20,13 +20,13 @@ We use FC (Family Computer) as an example to explain 8 bit music. In the music s
 
 1. square wave (2 track)
 
-![](./Using-Tone-js-to-make-8bit-music/square-wave.jpg)
+![](/Using-Tone-js-to-make-8bit-music/square-wave.jpg)
 
 Square wave occupy two track, since it has variable proportions waves. Thus the wave generate different tone. Piano, guitar and other instrument can be simulated by this wave.  
 
 2. triangular wave (1 track)
 
-![](./Using-Tone-js-to-make-8bit-music/triangular-wave.jpg)
+![](/Using-Tone-js-to-make-8bit-music/triangular-wave.jpg)
 
 sometime we use this wave to simulate bass
 
@@ -111,7 +111,7 @@ Each tone has different wave, which represent different instruments. `squareSynt
 
 Last step we should add audio effect to make music more rich. Like I mentioned before, ADSR can create some reverberation, echo and differnet pitch. These can be achieved by `Tone.Envelope()`.
 
-![](./Using-Tone-js-to-make-8bit-music/ADSR.jpg)
+![](/Using-Tone-js-to-make-8bit-music/ADSR.jpg)
 
 Here is the code:
 
