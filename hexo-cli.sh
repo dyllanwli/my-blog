@@ -23,14 +23,16 @@ while getopts "he" OPTION; do
                         hexo clean;
                         hexo g;
                         hexo d;
+                        ;;
                 s)
                         hexo clean;
                         hexo s;
+                        ;;
                 gtam)
                         git add .;
                         git commit -m "$COMMENT";
                         git push;
-                
+                        ;;
                 h)
                         echo "Usage:"
                         echo "args.sh -h "
