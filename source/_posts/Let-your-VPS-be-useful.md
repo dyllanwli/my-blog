@@ -2,7 +2,8 @@
 layout: title
 title: Let your VPS be useful
 date: 2018-03-11 09:11:06
-tags:
+tags: linux
+categories: Tech
 ---
 
 I'd tried a wide range of cloud vendor. Just because I feel little bit neat freak on my own machine. On the virtual machine, I don't worry about the overload, the wastage or the upgrade. That is the advantage of the VPS. When you want to add disk size due to the massive data, just few clicks can help you; or when you want to maintain some monitor some metrix on your machine, just keep it running and no need to focus the runtime of the physics device -- a wholesome cloud infrastructure will help you.

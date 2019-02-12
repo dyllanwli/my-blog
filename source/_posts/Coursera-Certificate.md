@@ -2,7 +2,6 @@
 layout: title
 title: Coursera Certificate
 date: 2016-12-31 18:09:09
-tags: certificate
 ---
 
 This page is used for storing coursera certificate:

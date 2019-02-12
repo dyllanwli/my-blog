@@ -2,7 +2,8 @@
 layout: title
 title: Using Tone.js to make 8 bit music
 date: 2018-03-01 10:31:08
-tags:
+tags: music
+categories: Tech
 ---
 
 ## What is 8 bit music
