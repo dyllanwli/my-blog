@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Let your VPS be useful | DY-L</title>
+  <meta name="description" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="DY-L">
+
+  
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head" style="background-image: url(https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067)">
+    <div class="vertical">
+        <div class="site-head-content inner">
+             <a class="blog-logo" href="/"><img src="https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png" alt="Blog Logo"></a> 
+            <h1 class="blog-title">DY-L</h1>
+            <h2 class="blog-description"></h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2018-03-11T01:11:06.000Z" itemprop="datePublished">
+          2018-03-11
+      </time>
+    
+</span>
+    <h1 class="post-title">Let your VPS be useful</h1>
+    <section class="post-content">
+      <p>I’d tried a wide range of cloud vendor. Just because I feel little bit neat freak on my own machine. On the virtual machine, I don’t worry about the overload, the wastage or the upgrade. That is the advantage of the VPS. When you want to add disk size due to the massive data, just few clicks can help you; or when you want to maintain some monitor some metrix on your machine, just keep it running and no need to focus the runtime of the physics device – a wholesome cloud infrastructure will help you.</p>
+<p>However, most people just leave the machine unused, since the cloud vendor, after all, provided the most direct service for customer rather than left ourself to develop. But those service, more or less limiting the usage of single user, annoyed most of us. Why don’t we just using the docker to build a own?</p>
+<h2 id="ownCloud"><a href="#ownCloud" class="headerlink" title="ownCloud"></a>ownCloud</h2><p>Feel bad about the charging policy or limited size of the Google Drive or BaiduYunPan? It is undisputed for most public cloud drive markets that only subscribed can enjoy the tiny convenience of the cloud drive. </p>
+<p>How about using ownCloud to build our own?</p>
+<pre><code>docker run -p 8081:80 -d imdjh/owncloud-with-ocdownloader
+</code></pre><p>Just one line code with docker can quickly build a private cloud drive.</p>
+<h2 id="MetaBase"><a href="#MetaBase" class="headerlink" title="MetaBase"></a>MetaBase</h2><p>Since we got our cloud drive to storage our data, why don’t we build a data analysis tool to handle our data on cloud?</p>
+<blockquote>
+<p>Metabase is the easy, open source way for everyone in your company to ask questions and learn from data.</p>
+</blockquote>
+<pre><code>docker run -d -p 3000:3000 --name metabase metabase/metabase
+</code></pre><h2 id="minidlna"><a href="#minidlna" class="headerlink" title="minidlna"></a>minidlna</h2><p>Watching TV or PS4 all the day, or we can using the server turn into a mutil media center.</p>
+<pre><code>sudo apt-get install minidlna
+</code></pre><p>Only if you TV supports dlna protocol</p>
+<h2 id="Cloud-backup"><a href="#Cloud-backup" class="headerlink" title="Cloud backup"></a>Cloud backup</h2><p>Time Capsule is good, build our own cloud backup using AFP protocol is also functional achievable. </p>
+<pre><code>sudo apt-get install netatalk avahi-daemon
+sudo vim /etc/netatalk/AppleVolumes.default
+</code></pre><p>Edit some config file:</p>
+<pre><code>:DEFAULT: options:upriv,usedots
+/home/exampleuser/tm &quot;TimeMachine&quot; options:tm exampleuser
+</code></pre>
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>DY-L</h4>
+    <p>专业做梦,业余写写代码弹弹琴做点东西</p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=https://dyllanwli.github.io/2018/03/11/Let-your-VPS-be-useful/" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://dyllanwli.github.io/2018/03/11/Let-your-VPS-be-useful/" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=https://dyllanwli.github.io/2018/03/11/Let-your-VPS-be-useful/" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/2019/01/01/2019-Aspiration/">
+        ← 2019 Aspiration
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/2018/03/01/Using-Tone-js-to-make-8-bit-music/">
+        Using Tone.js to make 8 bit music →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">DY-L</a> &copy; 2014 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="http://zespia.tw/hexo/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = 'dyllanwli';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+</body>
+</html>
