@@ -2,7 +2,7 @@
 layout: title
 title: Using Kafka as a Event Store
 date: 2019-02-10 16:11:12
-tags: Distributed System
+tags: distributed System
 categories: Tech
 ---
 Kafka is meant to be a messaging system which has many similarities to an event store however to quote their intro:

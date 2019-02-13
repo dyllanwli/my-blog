@@ -2,7 +2,7 @@
 layout: title
 title: Let your VPS be useful
 date: 2018-03-11 09:11:06
-tags: linux
+tags: Linux
 categories: Tech
 ---
 
