@@ -1,10 +1,10 @@
 ---
-layout: title
+# layout: title
 title: The odyssey of Self-Discipline
-date: 2019-01-09 11:10:15
+cover_img: https://i.loli.net/2019/02/13/5c643027a5b02.png
+date: 2016-12-30 11:10:15
 tags: methdology, efficiency
 categories: Lifestyle
-cover_img: https://i.loli.net/2019/02/13/5c643027a5b02.png
 ---
 ## Why I am so hard to stay disciplined?
 
