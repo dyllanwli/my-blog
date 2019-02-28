@@ -1,13 +1,13 @@
 ---
 layout: title
 title: Make a youtube viewer bot
-date: 2018-04-30 10:21:00
+date: 2018-02-30 10:21:00
 tags: Linux
 categories: Tech
 ---
 
 
-Will I think I should show my code first than talk about the method. 
+Well I think I should show my code first, then talk about the method. 
 
 ```
 import os
