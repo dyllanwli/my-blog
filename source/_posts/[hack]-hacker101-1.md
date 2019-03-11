@@ -2,7 +2,7 @@
 layout: title
 title: Hacker101 CTF-1/2
 date: 2018-12-12 09:11:06
-tags: hacker101, security
+tags: hacker101
 categories: Hack
 ---
 I caught a nice website for learning basic information security recently. Hacker101. That site offers video course for novice to learn cryptography and information security from scratch. Also it has insteresting ctf question for us to solve. 

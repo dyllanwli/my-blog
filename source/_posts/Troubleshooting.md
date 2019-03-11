@@ -2,7 +2,7 @@
 layout: title
 title: Troubleshooting mixed
 date: 2018-01-01 22:24:07
-tags: troubleshooting, docker, Hyperledger, linux
+tags: troubleshooting
 categories: Tech
 ---
 
