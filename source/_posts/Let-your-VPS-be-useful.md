@@ -45,3 +45,41 @@ Edit some config file:
     /home/exampleuser/tm "TimeMachine" options:tm exampleuser
 
 
+## Cloud Torrent
+
+```
+version: '2'
+
+services:
+  ct:
+    image: jpillora/cloud-torrent
+    volumes: 
+      - /root/downloads:/downloads
+    restart: always
+    ports:
+      - 4300:63000
+    command: '--port 63000'
+```
+
+
+## netdata
+
+```
+version: '3'
+
+services:
+  netdata:
+    image: netdata/netdata
+    volumes: 
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    restart: always
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor=unconfined
+    ports:
+      - 19999:19999
+
+```
