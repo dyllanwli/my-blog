@@ -1,6 +1,6 @@
 ---
 layout: title
-title: What it XSS
+title: What is XSS
 date: 2018-12-17 09:11:06
 tags: hacker101, security, XSS
 categories: Hack
