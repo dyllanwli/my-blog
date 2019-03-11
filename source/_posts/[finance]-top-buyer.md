@@ -1,6 +1,6 @@
 ---
 layout: title
-title: 游资，买入和卖出-主要是想体验一下交易
+title: 游资 买入 卖出-主要是想体验一下交易
 date: 2017-05-11 09:11:06
 tags: finance, stock
 categories: Lifestyle

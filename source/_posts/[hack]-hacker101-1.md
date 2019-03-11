@@ -1,6 +1,6 @@
 ---
 layout: title
-title: Hacker101-CTF-1/2
+title: Hacker101 CTF-1/2
 date: 2018-12-12 09:11:06
 tags: hacker101, security
 categories: Hack

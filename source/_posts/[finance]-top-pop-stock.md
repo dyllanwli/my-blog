@@ -1,6 +1,6 @@
 ---
 layout: title
-title: Emmm... 开始业余时间炒股了
+title: 业余时间开始二级市场交易
 date: 2017-04-12 09:11:06
 tags: finance, stock
 categories: Lifestyle

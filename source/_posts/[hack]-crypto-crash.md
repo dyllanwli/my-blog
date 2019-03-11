@@ -1,6 +1,6 @@
 ---
 layout: title
-title: 密码学-Crypto Crash intro-一些重要概念
+title: 密码学的一些概念
 date: 2018-12-11 09:11:06
 tags: cryptography
 categories: Hack
