@@ -26,7 +26,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Make a youtube viewer bot | DY-L</title>
+	<title>k3s-轻量级Kubernetes上手 | DY-L</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -52,14 +52,14 @@
 
 	<meta property="og:site_name" content="DY-L">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="Make a youtube viewer bot | DY-L">
+	<meta property="og:title" content="k3s-轻量级Kubernetes上手 | DY-L">
 	<meta property="og:description" content="">
-	<meta property="og:url" content="https://dyllanwli.github.io/2018/03/02/Make-a-youtube-viewer-bot/">
+	<meta property="og:url" content="https://dyllanwli.github.io/2019/03/09/k3s-轻量级Kubernetes上手/">
 
 	
-	<meta property="article:published_time" content="2018-03-02T10:03:00+08:00"> 
+	<meta property="article:published_time" content="2019-03-09T16:03:00+08:00"> 
 	<meta property="article:author" content="DY-L">
-	<meta property="article:published_first" content="DY-L, /2018/03/02/Make-a-youtube-viewer-bot/">
+	<meta property="article:published_first" content="DY-L, /2019/03/09/k3s-轻量级Kubernetes上手/">
 	
 </head>
 <body class="post-template">
@@ -130,8 +130,8 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2018-03-02T02:21:00.000Z" itemprop="datePublished">
-                    2018-03-2
+                <time class="post-full-meta-date" datetime="2019-03-09T08:48:27.000Z" itemprop="datePublished">
+                    2019-03-9
                 </time>
                 
                 <span class="date-divider">/</span>
@@ -140,14 +140,43 @@
                 
                 
             </section>
-            <h1 class="post-full-title">Make a youtube viewer bot</h1>
+            <h1 class="post-full-title">k3s-轻量级Kubernetes上手</h1>
         </header>
         <article class="post-full no-image">
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <p>Well I think I should show my code first, then talk about the method. </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">import re</span><br><span class="line">import requests</span><br><span class="line">from os import _exit</span><br><span class="line">from time import sleep</span><br><span class="line">from random import choice,uniform</span><br><span class="line">from threading import Thread</span><br><span class="line">from argparse import ArgumentParser</span><br><span class="line">from selenium import webdriver</span><br><span class="line">from selenium.webdriver.common.proxy import Proxy,ProxyType</span><br><span class="line">from fake_useragent import UserAgent</span><br><span class="line">from os import path</span><br><span class="line">osproxy = &quot;http://127.0.0.1:8888&quot;</span><br><span class="line">sysProxy = False</span><br><span class="line">test = False</span><br><span class="line">proxy_pool_url = &apos;http://ip.jiangxianli.com&apos;</span><br><span class="line"># os.environ[&apos;http_proxy&apos;] = osproxy </span><br><span class="line"># os.environ[&apos;HTTP_PROXY&apos;] = osproxy</span><br><span class="line"># os.environ[&apos;https_proxy&apos;] = osproxy</span><br><span class="line"># os.environ[&apos;HTTPS_PROXY&apos;] = osproxy</span><br><span class="line"></span><br><span class="line">def load_arg():</span><br><span class="line">    args = &#123;&#125;</span><br><span class="line">    args[&quot;url&quot;] = &quot;https://youtu.be/0eG76YapPPE&quot;</span><br><span class="line">    args[&quot;threads&quot;] = 10</span><br><span class="line">    args[&quot;duration&quot;] = 5</span><br><span class="line">    args[&quot;proxies&quot;] = None</span><br><span class="line">    return args</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def test_proxy(osproxy):</span><br><span class="line">    print(osproxy)</span><br><span class="line">    os.environ[&apos;http_proxy&apos;] = osproxy </span><br><span class="line">    os.environ[&apos;HTTP_PROXY&apos;] = osproxy</span><br><span class="line">    os.environ[&apos;https_proxy&apos;] = osproxy</span><br><span class="line">    os.environ[&apos;HTTPS_PROXY&apos;] = osproxy</span><br><span class="line">    result = requests.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">    print(result)</span><br><span class="line">    </span><br><span class="line">def load_proxy():</span><br><span class="line">    if args[&quot;proxies&quot;] is not None:</span><br><span class="line">        proxies=open(args[&quot;proxies&quot;],&apos;r&apos;).read().split(&apos;\n&apos;)</span><br><span class="line">    else:</span><br><span class="line">        proxies=re.findall(re.compile(&apos;&lt;td&gt;([\d.]+)&lt;/td&gt;&apos;),str(requests.get(proxy_pool_url).content))</span><br><span class="line">        proxies=[&apos;%s:%s&apos;%x for x in list(zip(proxies[1::3],proxies[2::3]))]</span><br><span class="line">        </span><br><span class="line">    print(&apos;%d proxies successfully loaded!&apos;%len(proxies))</span><br><span class="line">    p=Proxy()</span><br><span class="line">    p.proxy_type=ProxyType.MANUAL</span><br><span class="line">    return p, proxies</span><br><span class="line"></span><br><span class="line">def bot_config(url):</span><br><span class="line">    proxy, proxies = load_proxy()</span><br><span class="line">    if sysProxy:</span><br><span class="line">        proxy.http_proxy = osproxy</span><br><span class="line">    else: </span><br><span class="line">        proxy.http_proxy=choice(proxies)</span><br><span class="line">        </span><br><span class="line">    proxy.autodetect = False</span><br><span class="line">    proxy.ssl_proxy=proxy.http_proxy</span><br><span class="line">    print(proxy.http_proxy)</span><br><span class="line">    chrome_options=webdriver.ChromeOptions()</span><br><span class="line">    chrome_options.add_argument(&apos;--mute-audio&apos;)</span><br><span class="line">    chrome_options.add_argument(&apos;--no-sandbox&apos;)</span><br><span class="line">    chrome_options.add_argument(&apos;ignore-certificate-errors&apos;)</span><br><span class="line">    chrome_options.add_argument(&apos;----headless&apos;)</span><br><span class="line">    chrome_options.add_argument(&apos;--no-startup-window&apos;)</span><br><span class="line">    chrome_options.add_argument(&apos;user-agent=&quot;&#123;&#125;&quot;&apos;.format(agent.random))</span><br><span class="line">    chrome_options.add_argument(&quot;--proxy-server=http://&#123;&#125;&quot;.format(proxy.http_proxy))</span><br><span class="line">    print(chrome_options.arguments)</span><br><span class="line">    print(&quot;loaded add_argument&quot;)</span><br><span class="line">    capabilities=webdriver.DesiredCapabilities.CHROME</span><br><span class="line">    proxy.add_to_capabilities(capabilities)</span><br><span class="line">    print(&quot;loaded capabilities&quot;)</span><br><span class="line">    chrome_options.binary_location = &quot;C:\Program Files (x86)\Google\Chrome\Application\chrome.exe&quot;</span><br><span class="line">    chrome_driver_binary = &quot;./chromedriver.exe&quot;</span><br><span class="line">    driver=webdriver.Chrome(executable_path = chrome_driver_binary,  options=chrome_options,desired_capabilities=capabilities)</span><br><span class="line">    print(&quot;loaded driver&quot;)</span><br><span class="line">    print(driver.get(args[&quot;url&quot;]))</span><br><span class="line">    print(&quot;sleeping&quot;,args[&quot;duration&quot;])</span><br><span class="line">    sleep(args[&quot;duration&quot;])</span><br><span class="line">    driver.close()</span><br><span class="line">    print(&quot;driver closed&quot;)</span><br><span class="line">    </span><br><span class="line">def bot(url):</span><br><span class="line">    try:</span><br><span class="line">        while True:</span><br><span class="line">            bot_config(url)</span><br><span class="line">    except Exception as e:</span><br><span class="line">        print(e)</span><br><span class="line">        _exit(0)</span><br><span class="line">    </span><br><span class="line">def Ebot(url):</span><br><span class="line">    while True:</span><br><span class="line">        bot_config(url)</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    args = load_arg()</span><br><span class="line">    agent=UserAgent()</span><br><span class="line">    for i in range(args[&quot;threads&quot;]):</span><br><span class="line">        t=Thread(target=Ebot,args=(args[&quot;url&quot;],))</span><br><span class="line">        t.deamon=True</span><br><span class="line">        t.start()</span><br><span class="line">        sleep(uniform(1.5,3.0))</span><br><span class="line">    </span><br><span class="line">if __name__ = &quot;__main__&quot;:</span><br><span class="line">    if test:                </span><br><span class="line">        args = load_arg()</span><br><span class="line">        proxy, proxies = load_proxy() </span><br><span class="line">        test_proxy(choice(proxies))</span><br><span class="line">    else:</span><br><span class="line">        main()</span><br></pre></td></tr></table></figure>
+                    <h2 id="intro"><a href="#intro" class="headerlink" title="intro"></a>intro</h2><p>k3s已经发布了几天时间，趁着手头的Vultr优惠券还没有过期，正好可以开几台机器尝试一下这个很热门的新项目。</p>
+<p>这个项目是RancherLab所开发的，之前使用k8s和swarm的时候也用过不少rancher，对其很方便的图形化容器管理感到很惊艳。感觉rancher和k8s其实应该算是竞争关系。rancher的两个版本都提供容器编排和调度，但是k8s的社区发展的越来越强大，rancher慢慢变成算是提供k8s的上层服务了，通过rancher管理多个k8s。</p>
+<p>好了vultr上的机器开好了，使用Ubuntu 18.04 x64 的快照，之前预装了docker之类的工具。虽然开了三台机器，不过首先还是试试单机的k3s吧。</p>
+<p>通过github的项目repo找到Readme先了解一下：<a href="https://github.com/rancher/k3s" target="_blank" rel="noopener">https://github.com/rancher/k3s</a></p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><p>k3s已经使用了containerd替换Docker来做runtime，所以我们可以在RancherOS停止Docker。containerd本身就是Docker的一部分，完全兼容我们所熟悉的Docker。</p>
+<p>官网提供了两种方法，一种就是下载下载repo的release然后自行安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /opt &amp;&amp; wget https://github.com/rancher/k3s/releases/download/v0.2.0/k3s</span><br><span class="line">chmod +x k3s &amp;&amp; ./k3s server &amp;</span><br></pre></td></tr></table></figure></p>
+<p>另外一种是通过类似于getdocker之类的官方脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sfL https://get.k3s.io | sh -</span><br></pre></td></tr></table></figure>
+<p>我们试试第二种<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[INFO]  Finding latest release</span><br><span class="line">[INFO]  Using v0.2.0 as release</span><br><span class="line">[INFO]  Downloading hash https://github.com/rancher/k3s/releases/download/v0.2.0/sha256sum-amd64.txt</span><br><span class="line">[INFO]  Downloading binary https://github.com/rancher/k3s/releases/download/v0.2.0/k3s</span><br><span class="line">[INFO]  Verifying binary download</span><br><span class="line">[INFO]  Installing k3s to /usr/local/bin/k3s</span><br><span class="line">[INFO]  Creating /usr/local/bin/kubectl symlink to k3s</span><br><span class="line">[INFO]  Creating /usr/local/bin/crictl symlink to k3s</span><br><span class="line">[INFO]  Creating uninstall script /usr/local/bin/k3s-uninstall.sh</span><br><span class="line">[INFO]  systemd: Creating environment file /etc/systemd/system/k3s.service.env</span><br><span class="line">[INFO]  systemd: Creating service file /etc/systemd/system/k3s.service</span><br><span class="line">[INFO]  systemd: Enabling k3s unit</span><br><span class="line">Created symlink /etc/systemd/system/multi-user.target.wants/k3s.service → /etc/systemd/system/k3s.service.</span><br><span class="line">[INFO]  systemd: Starting k3s</span><br></pre></td></tr></table></figure></p>
+<p>当起了k3s之后检查一下<code>netstat -tnlp</code>，我们可以发现k3s一并起了多个端口6444/6445应该是主程序，因为再起一次会提示端口占用，还有10010的containerd，以及10248到10252等几个未知服务。</p>
+<p>之前网上搜一搜k3s的信息，发现都是起亚k3s的车[lol]。</p>
+<p>这样启动的k3s会自带agent，也就是kubernetes的节点，使用<code>k3s server --disable-agent</code>来起k3s就可以单纯的将其作为server。</p>
+<p>接下来尝试一下添加deployment。</p>
+<p>我们使用官方提供的yaml template</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k3s kubectl create -f https://kubernetes.io/docs/user-guide/nginx-deployment.yaml</span><br></pre></td></tr></table></figure>
+<p>通过<code>k3s kubectl get deployment</code>和<code>k3s kubectl get pods</code>查看创建的pods</p>
+<h2 id="node"><a href="#node" class="headerlink" title="node"></a>node</h2><p>如果我们需要添加agent呢，添加一个node？</p>
+<p>首先查看一下原来的node<code>k3s kubectl get node</code>拿到的是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">NAME          STATUS   ROLES    AGE   VERSION</span><br><span class="line">vultr.guest   Ready    &lt;none&gt;   11d   v1.13.4-k3s.1</span><br></pre></td></tr></table></figure>
+<p>然后需要拿到机器上的node token，位置在<code>/var/lib/rancher/k3s/server/node-token</code></p>
+<p>拿到之后使用，来加入node。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">k3s agent -s $&#123;YOUR_SERVER_IP&#125; -t $&#123;NODE_TOKEN&#125;</span><br></pre></td></tr></table></figure>
+<p>但是发现一个问题，vultr的机器是默认没有开通LAN的或者是硬件配有配置好。</p>
+<p>比如这里用的是ubuntu的机器，我们需要自己添加LAN的固件。ubuntu 18的网卡配置需要创建一个10-ens7.yaml的文件在<code>/etc/netplan/</code>的目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">network:</span><br><span class="line">  version: 2</span><br><span class="line">  renderer: networkd</span><br><span class="line">  ethernets:</span><br><span class="line">    ens7:</span><br><span class="line">       match:</span><br><span class="line">         macaddress: 56:00:01:f2:8e:fb</span><br><span class="line">       mtu: 1450</span><br><span class="line">       dhcp4: no</span><br><span class="line">       addresses: [10.8.96.4/16]</span><br></pre></td></tr></table></figure></p>
+<p>其中addresses，就是vultr提供的private netowrk地址，使用<code>netplan apply</code>来配置设置。</p>
+<p>配置之后可以试一试能不能够ping通关联的机器。也可能需要重启类配置。</p>
+<p>这样多节点的k3s部署好了，就像swarm一样方便感觉。之后再尝试部署一些复杂的应用吧。</p>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://github.com/rancher/k3s" target="_blank" rel="noopener">https://github.com/rancher/k3s</a></li>
+</ul>
+
                 </div>
             </section>
         </article>
@@ -157,14 +186,14 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="Let your VPS be useful" href="/2018/03/11/Let-your-VPS-be-useful/">
-            ← Let your VPS be useful
+        <a class="prev-post" title="和弦级数和blues入门-1" href="/2019/03/20/和弦级数和blues入门/">
+            ← 和弦级数和blues入门-1
         </a>
         
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="Using Tone.js to make 8 bit music" href="/2018/03/01/Using-Tone-js-to-make-8bit-music/">
-            Using Tone.js to make 8 bit music →
+        <a class="next-post" title="Using Kafka as a Event Store" href="/2019/02/10/Using-Kafka-as-a-Event-Store/">
+            Using Kafka as a Event Store →
         </a>
         
     </nav>
@@ -190,7 +219,7 @@
         </a>
     </div>
     <div class="toc-main">
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#intro"><span class="toc-text">intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-text">Quick Start</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#node"><span class="toc-text">node</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-text">Reference</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -375,7 +404,7 @@
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Make a youtube viewer bot</div>
+    <div class="floating-header-title">k3s-轻量级Kubernetes上手</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
