@@ -83,5 +83,5 @@ theme: hexo-casper
 deploy:
   type: git
   repo: git@github.com:dyllanwli/dyllanwli.github.io.git
-  branch: dev
+  branch: master
 
