@@ -1,0 +1,85 @@
+# Config
+rss:            # link
+favicon: https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png
+blog_logo: 
+header_image: https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067
+bio: '去火星'
+post_toc: true
+
+# Keywords
+# keywords: hexo, casper, ghost, theme
+
+# Menu
+menu:
+  ABOUT: /about
+  ARCHIVES: /archives
+  # GALLARY: biubiubiu.cf
+  # you can add here
+
+# author
+author_image: https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png 
+# link
+author_bio: https://dyllanwli.github.io
+author_location: 
+
+# Social Links
+social:
+  # weibo: https://weibo.com/xzhih
+  github: https://github.com/dyllanwli
+  # twitter: https://twitter.com
+  # facebook: https://facebook
+  # telegram:
+  bilibili: http://space.bilibili.com/14030829
+  # youtube: 
+  # You only can use that I have added, I will keep adding
+
+# Footer Links
+footer_text: 
+  # title: link
+  # 粤ICP备xxxxxxx号-x: http://www.miitbeian.gov.cn
+  # 粤公网安备xxxxxxx号: http://www.beian.gov.cn
+
+# Widget
+widgets:
+  recent_posts: true
+  category: true
+  tagcloud: true
+  # This is a simple theme, I think 3 is enough.
+
+# Gallery
+# https://github.com/sachinchoolur/lightgallery.js
+lightgallery: true
+
+# LazyLoad
+# home page has enabled, this value is to post page
+# https://github.com/dinbror/blazy
+lazyload: true
+
+# Local Search
+local_search: true
+
+# Comment
+# https://valine.js.org
+comment: true
+valine:
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki 
+  verify: false # Verification code
+  appId: rbnJsA1FEvTiNEtlqA806eUg-gzGzoHsz # your leancloud application appid
+  appKey: y6fNB9url2YrSFBmxBAmAfVd # your leancloud application appkey
+  placeholder: leave your comment... # comment box placeholder
+  pageSize: 10 # pagination size
+  avatar: mm # gravatar style
+
+# PWA
+# you need create a manifest.json file in hexo's source folder
+manifest: false
+service_workers: false
+
+navColor: '3c484e'
+
+# Baidu Push
+baidu: false
+
+# Google Analytics
+googleAnalytics: true
+GA_TRACKING_ID: UA-134353790-1
