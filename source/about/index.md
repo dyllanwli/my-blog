@@ -6,7 +6,5 @@ tags: about
 sitemap: false
 ---
 + Programmer.
-+ Learning Jazz theory.
-+ Having interest in quantum physics.
-+ Playing few Instruments and music production.
++ Play Jazz.
 + Still want to go to the Mars. 
