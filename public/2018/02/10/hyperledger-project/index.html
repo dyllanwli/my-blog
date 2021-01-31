@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang>
+
+
+
+
+
+
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="preconnect" href="//pic.zhih.me">
+	<link rel="preconnect" href="//www.googletagmanager.com">
+	<link rel="preconnect" href="//zz.bdstatic.com">
+	<link rel="preconnect" href="//sp0.baidu.com">
+	<link rel="preconnect" href="//www.google-analytics.com">
+	<link rel="preconnect" href="//cdn1.lncld.net">
+	<link rel="preconnect" href="//unpkg.com">
+	<link rel="preconnect" href="//app-router.leancloud.cn">
+	<link rel="preconnect" href="//9qpuwspm.api.lncld.net">
+	<link rel="preconnect" href="//gravatar.loli.net">
+	<link rel="preload" href="https://pic.zhih.me/blog/header.jpg" as="image">
+
+	<title>Different between 5 Hyperleder project | DY-L</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="DY-L">
+	<meta name="description" content>
+
+	
+
+	
+	<link rel="shortcut icon" href="https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png">
+	<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="DY-L">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Different between 5 Hyperleder project | DY-L">
+	<meta property="og:description" content>
+	<meta property="og:url" content="https://dyllanwli.github.io/2018/02/10/hyperledger-project/">
+
+	
+	<meta property="article:published_time" content="2018-02-10T15:02:00+08:00"> 
+	<meta property="article:author" content="DY-L">
+	<meta property="article:published_first" content="DY-L, /2018/02/10/hyperledger-project/">
+	
+
+	
+	
+	<link rel="stylesheet" href="/css/allinonecss.min.css">
+
+	
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134353790-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-134353790-1');
+	</script>
+	
+	
+	
+<link rel="canonical" href="https://dyllanwli.github.io/2018/02/10/hyperledger-project/">
+
+
+
+
+
+</head>
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header post-site-header outer">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                
+                <a href="/" title="Home">HOME</a>
+                
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button-area">
+        <a href="#search" class="search-button">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="search-button">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/dyllanwli" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+    </div>
+</header>
+
+
+<div id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <div class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2018-02-10T21:45:42.000Z">
+                    2018-02-10
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/Tech/">Tech</a>&nbsp;&nbsp;
+                
+                
+            </div>
+            <h1 class="post-full-title">Different between 5 Hyperleder project</h1>
+        </header>
+        <div class="post-full no-image">
+            
+            <div class="post-full-content">
+                <article id="lightgallery" class="markdown-body">
+                    <p>The Linux Foundation’s Hyperledger project, which is focused on open source blockchain technology, divides its work into five sub projects. Hyperledger Executive Director Brian Behlendorf said Hyperledger’s technical steering committee must approve each new sub project, and it’s looking for projects that “represent different thinking.”</p>
+<p>The first five projects are: Fabric, Sawtooth, Indy, Burrow, and Iroha.</p>
+<p>“Every one of these projects started life outside of Hyperledger, first, by a team that had certain use cases in mind,” said Behlendorf. Each project must bring something unique to the open source group, and its technology must be applicable to other companies.</p>
+<h3 id="Fabric"><a href="#Fabric" class="headerlink" title="Fabric"></a>Fabric</h3><p>Fabric is Hyperledger’s most active project to date. The Fabric 1.0 release was issued in July. IBM initiated the Fabric project. It’s intended as a foundation for developing blockchain distributed ledger applications with a modular architecture. It allows components, such as consensus and membership services, to be plug-and-play.</p>
+<p>“Fabric is the granddaddy, if you will,” said Behlendorf. “Several companies are already selling products and services based on it.” The core of the platform is written in the Go programming language. A unique characteristic of Fabric is that its distributed ledger and smart contract platform allows for private channels. “If you have a large blockchain network and you want to share data with only certain parties, you can create a private channel with just those participants,” Behlendorf said. “It’s the most distinctive thing about Fabric right now.”</p>
+<h3 id="Sawtooth"><a href="#Sawtooth" class="headerlink" title="Sawtooth"></a>Sawtooth</h3><p>The Sawtooth project originally came from Intel. It includes a novel consensus algorithm called Proof of Elapsed Time. Consensus is a critical element of all blockchains. Generally, it is the technique by which new information is reviewed and confirmed before being accepted as the next entry in the ledger.</p>
+<p>The Sawtooth consensus software targets large distributed validator populations with minimal resource consumption. “It may give us the ability to build very broad and flat networks of hundreds to thousands of nodes,” said Behlendorf. “It’s harder to do with traditional consensus mechanisms without having the CPU burden of cryptocurrencies.”</p>
+<h3 id="Indy"><a href="#Indy" class="headerlink" title="Indy"></a>Indy</h3><p>The Indy project was originally the brainchild of the nonprofit group the Sovrin Foundation. The idea is to provide digital identities for individuals and give them the power to share their identity with whom they chose. “Instead of being an entry in a giant data base, you have your data and deal programmatically with different organizations who want to check your identity,” said Behlendorf. “And companies don’t have to store so much personal data. They can store a pointer to the identity.”</p>
+<p>Indy’s work looks especially timely, given the recent Experian hack. Behlendorf said Indy’s blockchain software is based on data minimization. When a company is done with your data, it throws it away. “It’s a toxic asset that could present a liability,” he said.</p>
+<h3 id="Burrow"><a href="#Burrow" class="headerlink" title="Burrow"></a>Burrow</h3><p>The Burrow project includes a permissioned, smart-contract interpreter built in part to the specification of the Ethereum Virtual Machine (EVM). The Ethereum platform is used both for cryptocurrency as well as for smart contracts. It’s written with the Solidity programming language. Within the Burrow Project, the EVM is the interpreter for smart contracts (not related to cryptocurrency) that run across the Ethereum network.</p>
+<p>Many well-known companies belong to the Enterprise Ethereum Alliance, including JPMorgan, Microsoft, Accenture, BP, and Cisco.</p>
+<p>“It’s important to build a relationship with the Ethereum community,” said Behlendorf. “Burrow is the only Apache-licensed Ethereum VM implementation out there.”</p>
+<h3 id="Iroha"><a href="#Iroha" class="headerlink" title="Iroha"></a>Iroha</h3><p>Finally, the Iroha project is a bit of an outlier within Hyperledger. It originated with some developers in Japan who had built their own blockchain technology for a couple of mobile use cases. “It’s implemented in C++ which can be more high performance for small data and focused use cases,” said Behlendorf. “Iroha is still looking for its niche, but it’s a great development team.”</p>
+
+                </article>
+                <ul class="tags-postTags">
+                    
+                    <li>
+                        <a href="/tags/Hyperledger/" rel="tag"># Hyperledger</a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="Programming language for Distribute System" href="/2018/02/09/programming-language-for-distributed-system/">
+            ← Programming language for Distribute System
+        </a>
+        
+        <span class="prev-next-post">·</span>
+        
+        <a class="next-post" title="Using Tone.js to make 8 bit music" href="/2018/03/01/Using-Tone-js-to-make-8bit-music/">
+            Using Tone.js to make 8 bit music →
+        </a>
+        
+    </nav>
+
+    
+    <div class="inner">
+        <div id="comment"></div>
+    </div>
+    
+</div>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Fabric"><span class="toc-text">Fabric</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sawtooth"><span class="toc-text">Sawtooth</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Indy"><span class="toc-text">Indy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Burrow"><span class="toc-text">Burrow</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Iroha"><span class="toc-text">Iroha</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; DY-L &mdash;</small>
+    <h3 class="read-next-card-header-title">Articles récents</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2021/01/01/[Jazz]-II-V-I进行/">进行II—V-I的笔记</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2020/01/26/[Research]-endnote-debug/">EndNote Debug</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2019/07/20/be-careful-about-serverless-sam/">Be careful about serverless - SAM</a>
+      </li>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067)">
+    <header class="read-next-card-header tagcloud-card">
+        <h3 class="read-next-card-header-title">Catégories</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GIS/">GIS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Hack/">Hack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Lifestyle/">Lifestyle</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Music/">Music</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Tech/">Tech</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/debug/">debug</a></li></ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(https://camo.githubusercontent.com/90f319acd1b2e9284745d850013bb75cb7c4fb77/68747470733a2f2f692e726564642e69742f3867666c7235777a6d336f30312e6a7067)">
+	<header class="read-next-card-header tagcloud-card">
+		<h3 class="read-next-card-header-title">Nuage de mot-clés</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/Hyperledger/" style="font-size: 14px;">Hyperledger</a> <a href="/tags/Kubernetes/" style="font-size: 14px;">Kubernetes</a> <a href="/tags/Linux/" style="font-size: 24px;">Linux</a> <a href="/tags/cryptography/" style="font-size: 14px;">cryptography</a> <a href="/tags/database/" style="font-size: 14px;">database</a> <a href="/tags/distributed-System/" style="font-size: 19px;">distributed System</a> <a href="/tags/finance/" style="font-size: 19px;">finance</a> <a href="/tags/hacker101/" style="font-size: 19px;">hacker101</a> <a href="/tags/jazz/" style="font-size: 24px;">jazz</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/methdology/" style="font-size: 14px;">methdology</a> <a href="/tags/music/" style="font-size: 14px;">music</a> <a href="/tags/research/" style="font-size: 14px;">research</a> <a href="/tags/security/" style="font-size: 19px;">security</a> <a href="/tags/serverless/" style="font-size: 14px;">serverless</a> <a href="/tags/troubleshooting/" style="font-size: 14px;">troubleshooting</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://raw.githubusercontent.com/dyllanwli/Solution/master/image/16729593.png" alt="DY-L">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="Rechercher ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+<footer class="site-footer outer">
+	<div class="site-footer-content inner">
+		<div class="copyright">
+			<a href="/" title="DY-L">DY-L</a>
+			&copy; 2021
+		</div>
+		<nav class="site-footer-nav">
+			
+			<a href="https://hexo.io" title="Hexo" target="_blank" rel="external">Hexo</a>
+			<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="external">Casper</a>
+		</nav>
+	</div>
+</footer>
+	
+
+
+<script>if(window.navigator && navigator.serviceWorker) {navigator.serviceWorker.getRegistrations().then(function(registrations) {for(let registration of registrations) {registration.unregister()}})}</script>
+
+
+<script async src="/js/allinone.min.js" id="scriptLoad"></script>
+
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function () {
+        var bLazy = new Blazy()
+    })
+</script>
+
+
+
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+<script async src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script async src="https://unpkg.com/valine@1.3.4/dist/Valine.min.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        new Valine({
+            el: '#comment' ,
+            verify: false,
+            notify: true,
+            appId: 'rbnJsA1FEvTiNEtlqA806eUg-gzGzoHsz',
+            appKey: 'y6fNB9url2YrSFBmxBAmAfVd',
+            placeholder: 'leave your comment...',
+            pageSize: 10,
+            avatar: 'mm',
+            visitor: true,
+        })
+    });
+</script>
+
+
+
+
+
+<script>
+    document.getElementById('scriptLoad').addEventListener('load', function(){
+        searchFunc("/")
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
