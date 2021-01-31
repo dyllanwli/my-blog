@@ -1,6 +1,6 @@
 ---
 layout: title
-title: 进行II—V-I的笔记
+title: ii-V-i进行的笔记
 date: 2021-01-01 08:49:27
 tags: jazz
 categories: Music
